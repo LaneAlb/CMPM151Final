@@ -139,7 +139,8 @@ public class Player : MonoBehaviour
                     // Send the Client Message for Rock Pick Up
                     //Debug.Log("-------- Pick Rock ----------");
                     // trigger noise burst for pick rock
-                    // OSCHandler.Instance.SendMessageToClient("pd", "/unity/rock", 1);
+                    // remember to add "rock" into pd oscRecieve
+                    OSCHandler.Instance.SendMessageToClient("pd", "/unity/rock", 1);
                 }
                 if (hitInfo.collider.tag == "TREE")
                 {
@@ -153,7 +154,7 @@ public class Player : MonoBehaviour
                     // Send the Client Message for Tree Pick Up
                     //Debug.Log("-------- Pick Tree ----------");
                     // trigger noise burst for pick tree
-                    // OSCHandler.Instance.SendMessageToClient("pd", "/unity/tree", 1);
+                    OSCHandler.Instance.SendMessageToClient("pd", "/unity/tree", 1);
                 }
                 if (hitInfo.collider.tag == "DEPOSIT") //deposit resources in the cart
                 {
