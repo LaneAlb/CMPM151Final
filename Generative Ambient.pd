@@ -1,5 +1,5 @@
 #N canvas 156 39 1436 892 12;
-#X obj 9 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 9 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 9 58 send ON;
 #X obj 777 30 receive ON;
@@ -73,9 +73,9 @@
 #X obj 591 496 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 661 457 r wTime;
-#X obj 740 457 r ON;
-#X obj 740 503 sel 0;
-#X obj 740 547 delay 5;
+#X obj 734 457 r ON;
+#X obj 734 503 sel 0;
+#X obj 734 547 delay 5;
 #X obj 661 502 - 500;
 #X obj 661 532 delay;
 #X msg 661 605 0 500;
@@ -127,19 +127,23 @@
 #X obj 1053 520 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1123 481 r wTime;
-#X obj 1202 481 r ON;
-#X obj 1202 527 sel 0;
-#X obj 1202 571 delay 5;
+#X obj 1191 481 r ON;
+#X obj 1191 527 sel 0;
+#X obj 1191 571 delay 5;
 #X obj 1123 526 - 500;
 #X obj 1123 556 delay;
 #X msg 1123 629 0 500;
 #X msg 1053 555 1 500;
 #X obj 501 63 metro 4000;
-#X text 1059 450 Envelope;
-#X text 691 432 Envelope;
+#X text 1112 428 Envelope;
+#X text 632 413 Envelope;
 #X text 441 396 Ambient Pitches;
 #X text 381 475 CMajor;
 #X text 816 504 FMajor;
+#X text 572 463 Attack;
+#X text 1037 496 Attack;
+#X text 662 627 Decay and Sustain;
+#X text 1124 651 Decay and Sustain;
 #X connect 0 0 1 0;
 #X connect 2 0 4 0;
 #X connect 3 0 5 0;
