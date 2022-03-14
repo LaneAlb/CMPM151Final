@@ -209,10 +209,14 @@ public class Player : MonoBehaviour
         if (count < 4)
         {
             OSCHandler.Instance.SendMessageToClient("pd", "/unity/tempo", 400);
+            //start wind effects
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/wind", 1);
         }
         else if(count < 6)
         {
             OSCHandler.Instance.SendMessageToClient("pd", "/unity/tempo", 300);
+            //stop wind effects
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/windstop", 1);
         }
         else if (count < 8)
         {
