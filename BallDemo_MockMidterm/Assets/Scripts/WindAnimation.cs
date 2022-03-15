@@ -53,7 +53,7 @@ public class WindAnimation : MonoBehaviour {
 		for (int i = 0; i < 7; i++)
 		{
 			Debug.Log(aveMag[i]);
-			if (aveMag[i] >= 1)
+			if (aveMag[i] >= 0.75)
 			{
 				main.startSpeed = 60;
 				ps.transform.eulerAngles = slant;
