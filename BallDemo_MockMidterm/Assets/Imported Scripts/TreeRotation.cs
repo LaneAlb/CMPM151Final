@@ -10,6 +10,7 @@ public class TreeRotation : MonoBehaviour
     public float speedModifier = 1f;
 
     private float soundMagnitude;
+    private float[] array;
 
     private Quaternion currentTargetAngle;
 
@@ -20,14 +21,16 @@ public class TreeRotation : MonoBehaviour
         timer = 0f;
         currentTargetAngle = Quaternion.Euler(0f,0f,0f);
 
-        soundMagnitude = GameObject.Find("Particle System").GetComponent<WindAnimation>().aveMag[256];
+        //soundMagnitude = GameObject.Find("Particle System").GetComponent<WindAnimation>().aveMag[0];
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        soundMagnitude = GameObject.Find("Particle System").GetComponent<WindAnimation>().aveMag[256];
-        speedModifier = soundMagnitude / 2;
+        soundMagnitude = GameObject.Find("Particle System").GetComponent<WindAnimation>().aveMag[0];
+        //soundMagnitude = array[array.Length/2];
+        speedModifier = soundMagnitude / 1f;
         // Every so often, make a new target rotation for the tree
         if(timer >= 2f / speedModifier){
             newRotation();
@@ -35,7 +38,7 @@ public class TreeRotation : MonoBehaviour
         }
 
         // Rotates the tree towards the target angle over time by a rate given by "speedModifier"
-        tree.rotation = Quaternion.RotateTowards(tree.rotation, currentTargetAngle, speedModifier * Time.deltaTime);
+        tree.rotation = Quaternion.RotateTowards(tree.rotation, currentTargetAngle, speedModifier * 2f * Time.deltaTime);
 
         timer += Time.deltaTime;
     }
