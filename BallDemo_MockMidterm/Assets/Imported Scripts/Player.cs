@@ -71,6 +71,13 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
+        if(movementInput()){
+            OSCHandler.Instance.SendMessageToClient ("pd", "/unity/step", 1);
+        } 
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S)){
+            OSCHandler.Instance.SendMessageToClient ("pd", "/unity/step", 0);
+        }
+
         if (vertical > 0)
         {
             this.GetComponent<CharacterController>().SimpleMove(transform.forward * this.speed);
@@ -174,6 +181,10 @@ public class Player : MonoBehaviour
                     //Debug.Log("-------- Deposit ----------");
                     // trigger noise burst for deposit
                     // OSCHandler.Instance.SendMessageToClient("pd", "/unity/desposit", 1);
+
+                    // sound effect for done with the game
+                    // Check if Last house complete
+                    // Finish();
                 }
             }
         }
@@ -197,6 +208,11 @@ public class Player : MonoBehaviour
 		//************* Send the message to the client...
 		OSCHandler.Instance.SendMessageToClient ("pd", "/unity/trigger", count);
 		//*************
+	}
+
+    private bool movementInput()
+	{
+		return Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S);
 	}
 
     void sendSoundEffect()
@@ -232,9 +248,12 @@ public class Player : MonoBehaviour
         {
 			OSCHandler.Instance.SendMessageToClient("pd", "/unity/done", 1);
 		}
-        // special sound effects would be here too
-        // for pick up and deposit sound effect sending
-        // check the "CastRay()" Function
+	}
+
+    private void Finish()
+	{
+		OSCHandler.Instance.SendMessageToClient("pd", "/unity/done", 1);
+        OSCHandler.Instance.SendMessageToClient("pd", "/unity/playseq", 0);
 	}
 
 }
