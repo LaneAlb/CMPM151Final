@@ -29,17 +29,15 @@ public class TreeRotation : MonoBehaviour
     void Update()
     {
         soundMagnitude = GameObject.Find("Particle System").GetComponent<WindAnimation>().aveMag[0];
-        //soundMagnitude = array[array.Length/2];
         speedModifier = soundMagnitude / 1f;
         // Every so often, make a new target rotation for the tree
         if(timer >= 2f / speedModifier){
             newRotation();
             timer = 0f;
         }
-
         // Rotates the tree towards the target angle over time by a rate given by "speedModifier"
-        tree.rotation = Quaternion.RotateTowards(tree.rotation, currentTargetAngle, speedModifier * 2f * Time.deltaTime);
-
+        tree.rotation = Quaternion.RotateTowards(tree.rotation, currentTargetAngle, 
+                                                speedModifier * 2f * Time.deltaTime);
         timer += Time.deltaTime;
     }
 
