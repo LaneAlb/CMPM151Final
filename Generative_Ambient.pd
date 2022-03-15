@@ -1,5 +1,5 @@
-#N canvas 13 9 1274 892 12;
-#X obj 8 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#N canvas 2106 56 1274 870 12;
+#X obj 8 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 8 100 send ON;
 #X obj 777 30 receive ON;
@@ -30,8 +30,8 @@
 #X obj 414 188 * 4;
 #X obj 414 239 send wTime;
 #X obj 413 115 send wNote;
-#X obj 142 36 loadbang;
-#X obj 217 36 loadbang;
+#X obj 75 36 loadbang;
+#X obj 191 36 loadbang;
 #X floatatom 217 89 5 0 0 0 - - -;
 #X msg 217 61 60;
 #X msg 142 75 60000;
@@ -115,11 +115,11 @@
 -1 -1;
 #X obj 932 576 * 1.001;
 #X obj 932 629 phasor~;
-#X obj 884 678 lop~ 150;
-#X obj 884 704 hip~ 15;
+#X obj 931 685 lop~ 150;
+#X obj 931 711 hip~ 15;
 #X obj 866 451 r 4thNote;
 #X obj 866 503 F_Scale;
-#X obj 885 748 *~ 0;
+#X obj 932 755 *~ 0;
 #X obj 1053 674 line;
 #X obj 1053 520 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -142,9 +142,11 @@
 #X text 662 627 Decay and Sustain;
 #X text 1124 651 Decay and Sustain;
 #X obj 8 43 inlet;
-#X obj 94 850 outlet~;
-#X obj 886 831 outlet~;
+#X obj 95 821 outlet~;
+#X obj 933 827 outlet~;
 #X obj 460 822 outlet~;
+#X obj 260 34 r ON;
+#X obj 142 36 r ON;
 #X connect 0 0 1 0;
 #X connect 2 0 4 0;
 #X connect 3 0 5 0;
@@ -259,3 +261,5 @@
 #X connect 115 0 106 0;
 #X connect 116 0 86 0;
 #X connect 126 0 0 0;
+#X connect 130 0 29 0;
+#X connect 131 0 30 0;
