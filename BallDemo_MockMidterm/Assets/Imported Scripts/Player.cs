@@ -238,10 +238,6 @@ public class Player : MonoBehaviour
         {
             OSCHandler.Instance.SendMessageToClient("pd", "/unity/tempo", 150);
         }
-        else
-        {
-            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playseq", 0);
-        } 
 
         // send the "completed" sound effect here
         if (count == 8)
