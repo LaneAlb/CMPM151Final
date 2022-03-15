@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour {
+public class WindAnimation : MonoBehaviour {
 
 	public float partitionIndx;
 	public int numPartitions;
 	public float[] aveMag;
 	public int numDisplayedBins;
 	private Vector3 baseScale = new Vector3(0.75f, 0.75f, 0.75f); // Use this for size override if wanted
+	
+	public ParticleSystem ps;
+	Vector3 slant = new Vector3(60, 0, 0);
+	Vector3 original = new Vector3(90, 0, 0);
 	void Start(){
+		ps = GetComponent<ParticleSystem>();
+
 		numPartitions = 8;
 		aveMag = new float[numPartitions];
 		partitionIndx = 0;
@@ -17,8 +23,8 @@ public class Rotator : MonoBehaviour {
 	}
 
 	void Update () {
-		// rotate everything with the script
-		transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
+		var main = ps.main;
+		var emission = ps.emission;
 
 		numPartitions = 8;
 		aveMag = new float[numPartitions];
@@ -37,32 +43,27 @@ public class Rotator : MonoBehaviour {
 				i--;
 			}
 		}
-
         //scale and bound the average magnitude.
 		// values are usually close to 0, we magnify them for actual use
         for (int i = 0; i < numPartitions; i++)
         {
-            aveMag[i] = 0.25f * aveMag[i] * 200;
-			if(aveMag[i] < 0.3f){
-				aveMag[i] = 0.3f; 
-			}
-			if(aveMag[i] > 4f){
-				aveMag[i] = 3f;
-			}
+            aveMag[i] = 0.5f * aveMag[i] * 1000;
         }
 		
-		// sync certain pickups together
-		for (int i = 0; i <= 3; i++)
+		for (int i = 0; i < 7; i++)
 		{
-			if (gameObject.name == "Pickup (" + i + ")") {
-				Vector3 nScale = new Vector3 (aveMag[i], aveMag[i], aveMag[i]);
-				if (nScale.y < 0.3f) nScale.y = 0.3f * Random.Range(1.2f, 1.5f);
-				transform.localScale = nScale;
+			Debug.Log(aveMag[i]);
+			if (aveMag[i] >= 0.75)
+			{
+				main.startSpeed = 60;
+				ps.transform.eulerAngles = slant;
+				emission.rateOverTime = 1400;
 			}
-			if (gameObject.name == "Pickup (" + (i+4) + ")") {
-				Vector3 nScale = new Vector3 (aveMag[i], aveMag[i], aveMag[i]);
-				if (nScale.y < 0.3f) nScale.y = 0.3f * Random.Range(1.2f, 1.5f);
-				transform.localScale = nScale;
+			else
+			{
+				main.startSpeed = 20;
+				ps.transform.eulerAngles = original;
+				emission.rateOverTime = 700;
 			}
 		}
 	}
