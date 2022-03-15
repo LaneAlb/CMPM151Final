@@ -1,11 +1,11 @@
-#N canvas -8 -8 1920 997 10;
+#N canvas -8 0 2315 997 10;
 #X text 159 299 creation arguments are OSC address;
 #X text 161 260 set message to change OSC address;
 #X text 152 85 1 Set IP Address : network address;
 #X text 152 105 2 Set Ports (sending and listening);
 #X text 152 124 3 Set OSC Addresses (routing osc data;
 #X text 154 59 Key Settings;
-#X floatatom 26 229 5 0 0 0 - - -;
+#X floatatom 26 229 5 0 0 0 - - - 0;
 #N canvas 144 167 1031 674 oscReceive 0;
 #X obj 55 184 netreceive -u -b;
 #X msg 78 143 listen 0;
@@ -17,38 +17,38 @@
 #X text 150 114 listen on port 8000;
 #X obj 177 269 oscparse;
 #X obj 177 293 list trim;
-#X floatatom 140 380 5 0 0 0 - - -;
+#X floatatom 140 380 5 0 0 0 - - - 0;
 #X text 241 267 Parse the OSC message;
 #X obj 177 319 route unity;
 #X obj 139 357 route trigger;
 #X obj 140 407 s osctrig;
 #X msg 66 115 listen 8000;
 #X obj 66 84 loadbang;
-#X floatatom 244 382 5 0 0 0 - - -;
+#X floatatom 244 382 5 0 0 0 - - - 0;
 #X obj 243 359 route tempo;
 #X obj 244 409 s osctempo;
-#X floatatom 339 382 5 0 0 0 - - -;
+#X floatatom 339 382 5 0 0 0 - - - 0;
 #X obj 338 359 route playseq;
 #X obj 339 409 s oscplayseq;
-#X floatatom 437 382 5 0 0 0 - - -;
-#X floatatom 537 381 5 0 0 0 - - -;
+#X floatatom 437 382 5 0 0 0 - - - 0;
+#X floatatom 537 381 5 0 0 0 - - - 0;
 #X obj 537 408 s oscdone;
 #X obj 536 358 route done;
 #X obj 630 358 route tree;
 #X obj 714 356 route rock;
 #X obj 714 408 s oscrock;
 #X obj 630 408 s osctree;
-#X floatatom 632 383 5 0 0 0 - - -;
-#X floatatom 714 384 5 0 0 0 - - -;
-#X floatatom 803 382 5 0 0 0 - - -;
+#X floatatom 632 383 5 0 0 0 - - - 0;
+#X floatatom 714 384 5 0 0 0 - - - 0;
+#X floatatom 803 382 5 0 0 0 - - - 0;
 #X obj 803 355 route wind;
 #X obj 803 407 s oscwind;
-#X floatatom 881 382 5 0 0 0 - - -;
+#X floatatom 881 382 5 0 0 0 - - - 0;
 #X obj 881 355 route windstop;
 #X obj 881 407 s oscwindstop;
 #X obj 437 409 s oscstep;
 #X obj 436 359 route step;
-#X floatatom 983 381 5 0 0 0 - - -;
+#X floatatom 983 381 5 0 0 0 - - - 0;
 #X obj 983 354 route allitems;
 #X obj 983 406 s oscallitems;
 #X connect 0 0 6 0;
@@ -90,8 +90,8 @@
 #X connect 41 0 43 0;
 #X connect 42 0 41 0;
 #X restore 23 190 pd oscReceive;
-#X obj 24 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 24 102 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X msg 24 136 \; pd dsp \$1;
 #X obj 26 300 oscformat PD message;
 #X msg 58 261 set PD message;
@@ -114,9 +114,9 @@
 #X connect 8 0 7 0;
 #X restore 23 166 pd oscSend;
 #X obj 26 335 s oscOut;
-#X obj 1729 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X floatatom 1822 240 5 0 0 0 - - -;
+#X obj 1729 216 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 1822 240 5 0 0 0 - - - 0;
 #X obj 1873 207 r osctempo;
 #X obj 1822 177 loadbang;
 #X obj 1729 176 r oscplayseq;
@@ -126,35 +126,35 @@ collected by the player.;
 #X text 15 77 Toggle DSP;
 #X obj 39 510 dac~;
 #X obj 38 433 catch~ $output;
-#X floatatom 84 512 5 0 0 0 - - -;
+#X floatatom 84 512 5 0 0 0 - - - 0;
 #X text 17 407 Master Volume Output;
 #X obj 974 695 throw~ $output;
-#X obj 154 381 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 1132 503 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 1031 634 5 0 0 0 - - -;
+#X obj 154 381 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 1132 503 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 1031 634 5 0 0 0 - - - 0;
 #X obj 38 467 /~ 5;
 #X obj 973 649 /~ 1;
 #X text 179 390 Volume Control Higher = Quieter;
 #X text 1150 617 Volume Control Higher = Quieter;
-#X floatatom 445 1710 5 0 0 0 - - -;
+#X floatatom 445 1710 5 0 0 0 - - - 0;
 #X obj 445 1864 *~;
 #X obj 444 1679 mtof;
 #X obj 442 1618 + 0;
 #X obj 560 1770 vline~;
-#X floatatom 560 1674 5 0 0 0 - - -;
+#X floatatom 560 1674 5 0 0 0 - - - 0;
 #X obj 560 1621 loadbang;
 #X obj 446 1768 osc~;
 #X obj 645 1045 metro 4000;
-#X obj 524 854 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X floatatom 741 1002 5 0 0 0 - - -;
+#X obj 524 854 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 741 1002 5 0 0 0 - - - 0;
 #X obj 659 1083 f;
 #X obj 702 1085 + 1;
-#X obj 856 871 vsl 15 128 50 500 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 328 1720 5 0 0 0 - - -;
+#X obj 856 871 vsl 15 128 50 500 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 328 1720 5 0 0 0 - - - 0;
 #X msg 560 1648 48;
 #X msg 1747 1414 12;
 #X msg 1635 1416 11;
@@ -171,18 +171,18 @@ collected by the player.;
 #X msg 66 1332 -3;
 #X msg 107 1332 -1;
 #X msg 149 1332 1;
-#X floatatom 13 1387 5 0 0 0 - - -;
-#X floatatom 63 1387 5 0 0 0 - - -;
-#X floatatom 110 1387 5 0 0 0 - - -;
-#X floatatom 159 1385 5 0 0 0 - - -;
-#X floatatom 223 1385 5 0 0 0 - - -;
-#X floatatom 273 1385 5 0 0 0 - - -;
-#X floatatom 320 1385 5 0 0 0 - - -;
-#X floatatom 369 1383 5 0 0 0 - - -;
-#X floatatom 428 1384 5 0 0 0 - - -;
-#X floatatom 478 1384 5 0 0 0 - - -;
-#X floatatom 525 1384 5 0 0 0 - - -;
-#X floatatom 574 1382 5 0 0 0 - - -;
+#X floatatom 13 1387 5 0 0 0 - - - 0;
+#X floatatom 63 1387 5 0 0 0 - - - 0;
+#X floatatom 110 1387 5 0 0 0 - - - 0;
+#X floatatom 159 1385 5 0 0 0 - - - 0;
+#X floatatom 223 1385 5 0 0 0 - - - 0;
+#X floatatom 273 1385 5 0 0 0 - - - 0;
+#X floatatom 320 1385 5 0 0 0 - - - 0;
+#X floatatom 369 1383 5 0 0 0 - - - 0;
+#X floatatom 428 1384 5 0 0 0 - - - 0;
+#X floatatom 478 1384 5 0 0 0 - - - 0;
+#X floatatom 525 1384 5 0 0 0 - - - 0;
+#X floatatom 574 1382 5 0 0 0 - - - 0;
 #X msg 237 1330 -4;
 #X msg 317 1330 0;
 #X msg 359 1330 2;
@@ -191,10 +191,10 @@ collected by the player.;
 #X msg 481 1329 -1;
 #X msg 522 1329 1;
 #X msg 564 1329 3;
-#X floatatom 622 1386 5 0 0 0 - - -;
-#X floatatom 672 1386 5 0 0 0 - - -;
-#X floatatom 719 1386 5 0 0 0 - - -;
-#X floatatom 768 1384 5 0 0 0 - - -;
+#X floatatom 622 1386 5 0 0 0 - - - 0;
+#X floatatom 672 1386 5 0 0 0 - - - 0;
+#X floatatom 719 1386 5 0 0 0 - - - 0;
+#X floatatom 768 1384 5 0 0 0 - - - 0;
 #X msg 636 1331 -2;
 #X msg 675 1331 0;
 #X msg 716 1331 2;
@@ -202,18 +202,18 @@ collected by the player.;
 #X msg 586 1021 216.5;
 #X obj 659 966 f;
 #X obj 662 915 metro 500;
-#X floatatom 822 1388 5 0 0 0 - - -;
-#X floatatom 872 1388 5 0 0 0 - - -;
-#X floatatom 919 1388 5 0 0 0 - - -;
-#X floatatom 968 1386 5 0 0 0 - - -;
-#X floatatom 1018 1387 5 0 0 0 - - -;
-#X floatatom 1068 1387 5 0 0 0 - - -;
-#X floatatom 1115 1387 5 0 0 0 - - -;
-#X floatatom 1164 1385 5 0 0 0 - - -;
-#X floatatom 1214 1387 5 0 0 0 - - -;
-#X floatatom 1264 1387 5 0 0 0 - - -;
-#X floatatom 1311 1387 5 0 0 0 - - -;
-#X floatatom 1360 1385 5 0 0 0 - - -;
+#X floatatom 822 1388 5 0 0 0 - - - 0;
+#X floatatom 872 1388 5 0 0 0 - - - 0;
+#X floatatom 919 1388 5 0 0 0 - - - 0;
+#X floatatom 968 1386 5 0 0 0 - - - 0;
+#X floatatom 1018 1387 5 0 0 0 - - - 0;
+#X floatatom 1068 1387 5 0 0 0 - - - 0;
+#X floatatom 1115 1387 5 0 0 0 - - - 0;
+#X floatatom 1164 1385 5 0 0 0 - - - 0;
+#X floatatom 1214 1387 5 0 0 0 - - - 0;
+#X floatatom 1264 1387 5 0 0 0 - - - 0;
+#X floatatom 1311 1387 5 0 0 0 - - - 0;
+#X floatatom 1360 1385 5 0 0 0 - - - 0;
 #X msg 836 1333 -1;
 #X msg 875 1333 1;
 #X msg 916 1333 3;
@@ -238,9 +238,9 @@ collected by the player.;
 #X text 624 1655 48 should be note C4;
 #X text 1561 1124 Ending Section;
 #X text 625 1113 Repeating Section;
-#X obj 753 1770 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 543 1901 5 0 0 0 - - -;
+#X obj 753 1770 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 543 1901 5 0 0 0 - - - 0;
 #X obj 444 1916 /~ 1;
 #X text 773 1769 Volume Control;
 #X msg 754 1941 1000;
@@ -255,15 +255,15 @@ Audio Feedback;
 #X text 11 11 GROUP E Lane Albrecht Pierce Sullivan Jalen Pastor Sam
 Vik;
 #X obj 2103 474 throw~ $output;
-#X obj 2194 278 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 2125 409 5 0 0 0 - - -;
+#X obj 2194 278 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 2125 409 5 0 0 0 - - - 0;
 #X obj 2104 444 /~ 1;
 #X text 2191 261 Volume Control Higher = Quieter;
 #X obj 2123 952 throw~ $output;
-#X obj 2212 763 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 2143 894 5 0 0 0 - - -;
+#X obj 2212 763 vsl 15 128 1 100 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 2143 894 5 0 0 0 - - - 0;
 #X text 2193 746 Volume Control Higher = Quieter;
 #X obj 2122 922 /~ 1;
 #X msg 2122 652 127;
@@ -272,19 +272,19 @@ Vik;
 #X obj 147 300 vline~;
 #X msg 147 260 \$1 \, \$2 \$3;
 #X obj 147 228 pack f f f;
-#X obj 110 116 nbx 3 14 10 999 0 1 empty empty t -8 8 0 10 -262144
--1 -1 323 256;
-#X obj 158 116 nbx 3 14 10 999 0 1 empty empty b -8 8 0 10 -262144
--1 -1 23 256;
-#X obj 206 116 nbx 3 14 1 500 0 1 empty empty d -8 8 0 10 -262144 -1
--1 39 256;
+#X obj 110 116 nbx 3 14 10 999 0 1 empty empty t -8 8 0 10 #fcfcfc
+#000000 #000000 323 256;
+#X obj 158 116 nbx 3 14 10 999 0 1 empty empty b -8 8 0 10 #fcfcfc
+#000000 #000000 23 256;
+#X obj 206 116 nbx 3 14 1 500 0 1 empty empty d -8 8 0 10 #fcfcfc #000000
+#000000 39 256;
 #X obj 113 184 float;
 #X obj 109 389 *~;
 #X obj 83 349 *~;
 #X obj 78 315 vline~;
 #X obj 55 263 pack f f;
-#X obj 113 137 hsl 128 8 0 1 0 1 empty empty d -10 5 0 10 -262144 -1
--1 6400 1;
+#X obj 113 137 hsl 128 8 0 1 0 1 empty empty d -10 5 0 10 #fcfcfc #000000
+#000000 6400 1;
 #X obj 40 166 t f f;
 #X obj 44 192 *;
 #X obj 43 220 * 2000;
@@ -345,19 +345,19 @@ Vik;
 #X obj 147 300 vline~;
 #X msg 147 260 \$1 \, \$2 \$3;
 #X obj 147 228 pack f f f;
-#X obj 110 116 nbx 3 14 10 999 0 1 empty empty t -8 8 0 10 -262144
--1 -1 307 256;
-#X obj 158 116 nbx 3 14 10 999 0 1 empty empty b -8 8 0 10 -262144
--1 -1 55 256;
-#X obj 206 116 nbx 3 14 1 500 0 1 empty empty d -8 8 0 10 -262144 -1
--1 23 256;
+#X obj 110 116 nbx 3 14 10 999 0 1 empty empty t -8 8 0 10 #fcfcfc
+#000000 #000000 307 256;
+#X obj 158 116 nbx 3 14 10 999 0 1 empty empty b -8 8 0 10 #fcfcfc
+#000000 #000000 55 256;
+#X obj 206 116 nbx 3 14 1 500 0 1 empty empty d -8 8 0 10 #fcfcfc #000000
+#000000 23 256;
 #X obj 113 184 float;
 #X obj 109 389 *~;
 #X obj 83 349 *~;
 #X obj 78 315 vline~;
 #X obj 55 263 pack f f;
-#X obj 113 137 hsl 128 8 0 1 0 1 empty empty d -10 5 0 10 -262144 -1
--1 10300 1;
+#X obj 113 137 hsl 128 8 0 1 0 1 empty empty d -10 5 0 10 #fcfcfc #000000
+#000000 10300 1;
 #X obj 40 166 t f f;
 #X obj 44 192 *;
 #X obj 43 220 * 2000;
@@ -521,7 +521,7 @@ Vik;
 #X obj 289 2521 *~ 1.4;
 #X obj 387 2127 *~ 0.4;
 #X obj 386 2159 +~ 0.2;
-#X floatatom 566 2175 5 0 0 0 - - -;
+#X floatatom 566 2175 5 0 0 0 - - - 0;
 #X obj 572 2096 r loadbang;
 #X obj 595 2270 *~ 1;
 #X obj 532 2269 *~ 0.8;
@@ -531,9 +531,9 @@ Vik;
 #X obj 720 2270 *~ 0;
 #X obj 793 2271 *~ 0;
 #X text 322 2034 Based on Ch41 from Designing Sound;
-#X obj 607 2454 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 396 2594 5 0 0 0 - - -;
+#X obj 607 2454 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 396 2594 5 0 0 0 - - - 0;
 #X obj 297 2609 /~ 1;
 #X msg 607 2634 1000;
 #X msg 605 2605 1;
@@ -696,18 +696,18 @@ Vik;
 #X restore 1620 2701 pd fcpan 0.03;
 #X obj 1774 2198 *~ 1.8;
 #X obj 1770 2405 +~ 19;
-#X obj 1077 2488 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 1263 2693 5 0 0 0 - - -;
+#X obj 1077 2488 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 1263 2693 5 0 0 0 - - - 0;
 #X obj 1382 2687 /~ 1;
 #X msg 1078 2659 1000;
 #X msg 1076 2630 1;
 #X text 1114 2629 Click to reset to default volume;
 #X text 1119 2659 Click to mute;
 #X text 1114 2547 Volume control;
-#X obj 1929 2494 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 1719 2625 5 0 0 0 - - -;
+#X obj 1929 2494 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 1719 2625 5 0 0 0 - - - 0;
 #X obj 1619 2652 /~ 1;
 #X msg 1930 2665 1000;
 #X msg 1928 2636 1;
@@ -737,8 +737,8 @@ Vik;
 #X obj 1275 297 noise~;
 #X obj 1273 444 *~;
 #X obj 1315 401 vline~;
-#X obj 1003 199 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
--1 -1 4;
+#X obj 1003 199 hradio 15 1 0 5 empty empty empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0;
 #X obj 1003 132 f;
 #X obj 1043 133 + 1;
 #X obj 997 229 select 0 1 2 3;
@@ -757,21 +757,21 @@ Vik;
 #X obj 447 337 lop~ 1;
 #X obj 1003 51 r oscstep;
 #X obj 1003 107 metro 350;
-#X obj 1003 79 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 1003 79 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X text 998 24 Footsteps;
 #X obj 1782 362 throw~ $output;
 #X obj 1835 399 throw~ $output;
 #X obj 1088 71 r osctempo;
-#X obj 2096 1297 hradio 15 1 0 12 empty empty empty 0 -8 0 10 -262144
--1 -1 3;
+#X obj 2096 1297 hradio 15 1 0 12 empty empty empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0;
 #X obj 2096 1230 f;
 #X obj 2136 1231 + 1;
-#X obj 2096 1177 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X obj 2347 1597 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X floatatom 2288 1601 5 0 0 0 - - -;
+#X obj 2096 1177 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 2347 1597 vsl 15 128 0.5 3 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 2288 1601 5 0 0 0 - - - 0;
 #X obj 2189 1616 /~ 1;
 #X text 2417 1684 Volume Control;
 #X msg 2348 1768 1000;
@@ -785,20 +785,20 @@ Vik;
 #X obj 2096 1205 metro 450;
 #X obj 2095 1334 select 0 1 2 3 4;
 #N canvas 0 0 1613 2177 MIDI 0;
-#X floatatom 338 258 5 0 0 0 - - -;
+#X floatatom 338 258 5 0 0 0 - - - 0;
 #X obj 338 412 *~;
 #X obj 337 227 mtof;
 #X obj 335 166 + 0;
 #X obj 453 318 vline~;
-#X floatatom 453 222 5 0 0 0 - - -;
+#X floatatom 453 222 5 0 0 0 - - - 0;
 #X obj 453 169 loadbang;
 #X obj 339 316 osc~;
-#X floatatom 221 268 5 0 0 0 - - -;
+#X floatatom 221 268 5 0 0 0 - - - 0;
 #X msg 453 196 48;
 #X msg 453 265 0.5 100 \, 0 500 500;
 #X text 80 268 MIDI Debug Output;
 #X text 517 203 48 should be note C4;
-#X floatatom 338 115 5 0 0 0 - - -;
+#X floatatom 338 115 5 0 0 0 - - - 0;
 #X obj 335 67 inlet;
 #X obj 338 465 outlet~;
 #X connect 0 0 7 0;
@@ -816,8 +816,8 @@ Vik;
 #X connect 13 0 3 0;
 #X connect 14 0 13 0;
 #X restore 2186 1539 pd MIDI;
-#X floatatom 2184 1493 5 0 0 0 - - -;
-#X floatatom 1934 1495 5 0 0 0 - - -;
+#X floatatom 2184 1493 5 0 0 0 - - - 0;
+#X floatatom 1934 1495 5 0 0 0 - - - 0;
 #X msg 1880 1404 -3;
 #X msg 1963 1404 3;
 #X msg 2007 1403 8;
@@ -827,8 +827,8 @@ Vik;
 #X msg 2627 1395 -10;
 #X msg 2688 1395 -5;
 #X msg 2831 1394 10;
-#X floatatom 2723 1489 5 0 0 0 - - -;
-#X floatatom 2473 1491 5 0 0 0 - - -;
+#X floatatom 2723 1489 5 0 0 0 - - - 0;
+#X floatatom 2473 1491 5 0 0 0 - - - 0;
 #X msg 2380 1400 -8;
 #X msg 2419 1400 -3;
 #X msg 2502 1400 3;
@@ -1026,8 +1026,6 @@ Vik;
 #X connect 166 0 172 0;
 #X connect 166 1 173 0;
 #X connect 168 0 178 0;
-#X connect 169 0 163 0;
-#X connect 170 0 163 1;
 #X connect 171 0 167 0;
 #X connect 174 0 175 0;
 #X connect 175 0 183 1;
