@@ -22,10 +22,12 @@ public class HouseUpdater : MonoBehaviour
         if(houses[0].activeSelf && wood + stone >= 2){
             houses[0].SetActive(false);
             houses[1].SetActive(true);
-        } 
+        }
         if(houses[1].activeSelf && wood + stone >= 4){
             houses[1].SetActive(false);
             houses[2].SetActive(true);
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/done", 1);
+            OSCHandler.Instance.SendMessageToClient("pd", "/unity/playseq", 0);
         }
     }
 }
