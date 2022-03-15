@@ -247,7 +247,9 @@ public class Player : MonoBehaviour
         if (count == 8)
         {
 			OSCHandler.Instance.SendMessageToClient("pd", "/unity/done", 1);
-		}
+            //OSCHandler.Instance.SendMessageToClient("pd", "/unity/allitems", 1);
+        }
+
 	}
 
     private void Finish()
